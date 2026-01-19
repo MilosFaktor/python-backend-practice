@@ -1,0 +1,13 @@
+order_id,customer_id,customer_name,status,sku,qty,price
+B100,1, Alice ,paid,X,2,10.0
+B100,1, Alice ,paid,Y,1,5.0
+B101,2,Bob,pending,X,1,10.0
+B102,3,  Charlie,paid,X,1,10.0
+B102,3,  Charlie,paid,Y,1,5.0
+B103,4,,paid,Z,3,7.0
+B104,5,Eve,paid,X,2,10.0
+B104,5,Eve,paid,Y,-1,5.0
+B105,5,Eve,paid,Z,1,7.0
+B106,6,Frank,paid,X,notanumber,10.0
+B107,7,Grace,paid,X,1,notanumber
+B108,8,   ,paid,X,1,10.0
