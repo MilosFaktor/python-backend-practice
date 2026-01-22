@@ -3,3 +3,6 @@ xs13_serverless_idempotency/.env
 xs13_serverless_idempotency/.venv
 *.log
 .vscode
+__pycache__
+.pytest_cache
+.venv
