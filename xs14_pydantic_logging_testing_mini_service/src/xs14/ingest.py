@@ -31,6 +31,3 @@ def read_json_file(json_path: str) -> dict | ErrorInfo:
             message="Failed to read input file",
             details={"path": json_path, "error": str(e)},
         )
-
-
-print(read_json_file("users_raw.json"))
