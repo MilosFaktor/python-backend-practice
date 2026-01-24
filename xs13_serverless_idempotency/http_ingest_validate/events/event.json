@@ -1,0 +1,8 @@
+{
+  "httpMethod": "POST",
+  "headers": {
+    "Idempotency-Key": "407a2196-5d3f-4880-b34c-a6cc4b9a4cd2"
+  },
+  "body": "{\"statusCode\": 200, \"count\": 1, \"users\": [{\"id\": 1, \"name\": \"Alice\"}]}",
+  "isBase64Encoded": false
+}

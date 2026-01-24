@@ -1,0 +1,82 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  http_ingest_validate
+
+  Sample SAM Template for http_ingest_validate
+
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  LambdaAFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: app/
+      Handler: lambda_a.lambda_handler
+      Runtime: python3.13
+      Architectures:
+        - x86_64
+      Events:
+        HelloWorld:
+          Type: Api 
+          Properties:
+            Path: /lambda-a
+            Method: get
+  
+  LambdaBFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: app/
+      Handler: lambda_b.lambda_handler
+      Runtime: python3.13
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref IdempotencyTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref IdempotencyTable
+      Events:
+        HelloWorld:
+          Type: Api 
+          Properties:
+            Path: /lambda-b
+            Method: post
+      
+  IdempotencyTable:
+    Type: AWS::Serverless::SimpleTable
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+    Properties:
+      PrimaryKey:
+        Name: request_id
+        Type: String
+      
+
+
+
+Outputs:
+  LambdaAApi:
+    Description: "API Gateway endpoint URL for Prod stage for Lambda-A function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/lambda-a/"
+  LambdaAFunctionFunction:
+    Description: "Lambda-A Lambda Function ARN"
+    Value: !GetAtt LambdaAFunction.Arn
+  LambdaAFunctionIamRole:
+    Description: "Implicit IAM Role created for Lambda-A function"
+    Value: !GetAtt LambdaAFunctionRole.Arn
+  LambdaBApi:
+    Description: "API Gateway endpoint URL for Prod stage for Lambda-B function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/lambda-b/"
+  LambdaBFunctionFunction:
+    Description: "Lambda-B Lambda Function ARN"
+    Value: !GetAtt LambdaBFunction.Arn
+  LambdaBFunctionIamRole:
+    Description: "Implicit IAM Role created for Lambda-B function"
+    Value: !GetAtt LambdaBFunctionRole.Arn
+  TableName:
+    Description: "IdempotencyTable DynamoDB ARN"
+    Value: !Ref IdempotencyTable

@@ -2,4 +2,5 @@ private/
 xs13_serverless_idempotency/.env
 xs13_serverless_idempotency/.venv
 *.log
+.env*
 .vscode
