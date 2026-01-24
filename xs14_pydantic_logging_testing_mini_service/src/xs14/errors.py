@@ -1,3 +1,5 @@
+# errors.py
+
 from dataclasses import dataclass
 
 
@@ -6,4 +8,4 @@ class ErrorInfo:
     status_code: int
     code: str
     message: str
-    details: dict | None
+    details: list[dict] | None
