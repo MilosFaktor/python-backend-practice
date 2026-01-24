@@ -5,7 +5,10 @@ from botocore.exceptions import ClientError
 
 
 table_name = os.getenv("TABLE_NAME")
-dynamodb = boto3.resource("dynamodb")
+endpoint_url = (
+    "http://host.docker.internal:8000" if os.getenv("AWS_SAM_LOCAL") else None
+)
+dynamodb = boto3.resource("dynamodb", endpoint_url=endpoint_url)
 table = dynamodb.Table(table_name)
 
 

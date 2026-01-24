@@ -18,7 +18,8 @@ Non-goals:
 - Production hardening"""
 
 
-load_dotenv()
+env_file = os.getenv("ENV", "local")  # default to local
+load_dotenv(f".env.{env_file}")
 api_url_get = os.getenv("URL_GET")
 api_url_post = os.getenv("URL_POST")
 timeout = float(os.getenv("TIMEOUT", "5"))
