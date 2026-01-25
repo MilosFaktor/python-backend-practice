@@ -17,3 +17,4 @@ echo $PYTHONPATH
 # and after i can use only
 python -m xs14.main
 python sandbox.py
+
