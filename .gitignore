@@ -7,3 +7,4 @@ xs13_serverless_idempotency/.venv
 __pycache__
 .pytest_cache
 .venv
+*logs
