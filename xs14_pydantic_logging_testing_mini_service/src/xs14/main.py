@@ -21,7 +21,7 @@ if BUTTON == 1:
 else:
     raw_data = json_path_bad_data
 
-logger = setup_logging("INFO")
+logger = setup_logging(__name__, "INFO")
 
 
 def main():
@@ -39,6 +39,7 @@ def main():
         print(err)
 
         get_end_time(request_id, start, time.time(), logger)
+
         return
 
     else:
@@ -54,6 +55,7 @@ def main():
             print(err)
 
             get_end_time(request_id, start, time.time(), logger)
+
             return
 
         else:
