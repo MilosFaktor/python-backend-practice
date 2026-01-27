@@ -18,6 +18,6 @@ logging.critical(f"[request_id]: {r_id} - this is a critical message")
 
 
 try:
-    1 / 0
+    x = 1 / 0
 except ZeroDivisionError as e:
     logging.exception("ZeroDivisionError")
