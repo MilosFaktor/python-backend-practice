@@ -7,21 +7,15 @@ from xs14.output import build_success, build_error
 from xs14.logging_setup import setup_logging
 from xs14.errors import ErrorInfo
 from xs14.utils import get_end_time
+from xs14.config import settings
 
 import uuid
 import time
 
-json_path_good_data = "data/sample_ok.json"
-json_path_bad_data = "data/sample_bad.json"
+raw_path = settings.data_ok if settings.mode == "ok" else settings.data_bad
+raw = read_json_file(str(raw_path))
 
-BUTTON = 0
-
-if BUTTON == 1:
-    raw_data = json_path_good_data
-else:
-    raw_data = json_path_bad_data
-
-logger = setup_logging(__name__, "INFO")
+logger = setup_logging(__name__, settings.log_level)
 
 
 def main():
@@ -30,7 +24,6 @@ def main():
     logger.info(f"Request_id: {request_id} - 'START'")
 
     logger.info("Ingesting ...")
-    raw = read_json_file(raw_data)
 
     if isinstance(raw, ErrorInfo):
         logger.error("Ingest 'ERROR'")
