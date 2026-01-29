@@ -14,7 +14,7 @@ import time
 json_path_good_data = "data/sample_ok.json"
 json_path_bad_data = "data/sample_bad.json"
 
-BUTTON = 1
+BUTTON = 0
 
 if BUTTON == 1:
     raw_data = json_path_good_data

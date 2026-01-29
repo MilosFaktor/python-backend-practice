@@ -15,6 +15,8 @@ class UserRaw(BaseModel):
     @field_validator("id", mode="before")
     @classmethod
     def transform_id(cls, v):
+        if isinstance(v, bool):
+            raise ValueError("id can not be bool")
         if isinstance(v, str):
             s = v.strip()
             if not s:
