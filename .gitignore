@@ -5,4 +5,6 @@ xs13_serverless_idempotency/.venv
 .env*
 .vscode
 __pycache__
-mini_exercises/basic_functions_extended
+.pytest_cache
+.venv
+*logs
