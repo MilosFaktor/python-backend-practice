@@ -12,13 +12,12 @@ from xs14.config import settings
 import uuid
 import time
 
-raw_path = settings.data_ok if settings.mode == "ok" else settings.data_bad
-raw = read_json_file(str(raw_path))
-
 logger = setup_logging(__name__, settings.log_level)
 
 
 def main():
+    raw_path = settings.data_ok if settings.mode_data == "ok" else settings.data_bad
+    raw = read_json_file(str(raw_path))
     request_id = str(uuid.uuid4())
     start = time.time()
     logger.info(f"Request_id: {request_id} - 'START'")
@@ -29,7 +28,6 @@ def main():
         logger.error("Ingest 'ERROR'")
         err = build_error(raw)
         logger.error(err)
-        print(err)
 
         get_end_time(request_id, start, time.time(), logger)
 
@@ -45,7 +43,6 @@ def main():
             logger.error("Validation 'ERROR'")
             err = build_error(data)
             logger.error(err)
-            print(err)
 
             get_end_time(request_id, start, time.time(), logger)
 
@@ -60,8 +57,8 @@ def main():
 
             logger.info("Building output ...")
             data = build_success(data)
-            logger.info("Output built successfuly")
-            print(data)
+            logger.info("Output built successfuly:")
+            logger.info(data)
 
             get_end_time(request_id, start, time.time(), logger)
 

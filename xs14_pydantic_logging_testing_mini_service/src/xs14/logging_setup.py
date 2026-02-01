@@ -25,12 +25,15 @@ def setup_logging(
 
     if not logger.handlers:
         handler = logging.FileHandler(f"logs/xs14.log", mode="w")
+        stream_handler = logging.StreamHandler()
         handler.setLevel(values[level])
 
         formatter = logging.Formatter(
             "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         )
+
         handler.setFormatter(formatter)
         logger.addHandler(handler)
+        logger.addHandler(stream_handler)
 
     return logger
