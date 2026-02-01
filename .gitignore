@@ -8,3 +8,4 @@ __pycache__
 .pytest_cache
 .venv
 *logs
+mini_exercises/project_layouts
