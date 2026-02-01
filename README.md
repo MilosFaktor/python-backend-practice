@@ -31,7 +31,6 @@ is essential for building reliable backend and cloud systems.
   - testing with pytest (unit + integration tests)
 
 ## Structure
-- xs_basics — core Python fundamentals
 - xs_pipelines — small data-processing pipelines
 - xs_data_processing — realistic user and order workflows
 - xs13_serverless_idempotency — HTTP ingest (GET/POST), validation/normalization, retries/backoff, idempotent write (DynamoDB), local SAM testing
