@@ -10,3 +10,4 @@ __pycache__
 *logs
 mini_exercises/project_layouts
 xs01_xs04_basics/
+.ruff_cache
