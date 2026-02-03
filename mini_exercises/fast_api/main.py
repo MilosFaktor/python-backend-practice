@@ -1,5 +1,5 @@
 def main():
-    print("Hello from fast-api!")
+    print("testing")
 
 
 if __name__ == "__main__":
