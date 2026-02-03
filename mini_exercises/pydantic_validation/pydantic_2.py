@@ -2,8 +2,8 @@
 from pydantic import (
     BaseModel,
     ConfigDict,
-    field_validator,
     ValidationError,
+    field_validator,
 )
 
 
@@ -25,7 +25,7 @@ class User_1(BaseModel):
     def validate_email(cls, v):
         if v is None:
             return None
-        if not "@" in v:
+        if "@" not in v:
             raise ValueError("email must contain @")
         return v
 

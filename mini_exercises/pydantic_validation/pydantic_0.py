@@ -1,6 +1,6 @@
-from pydantic import BaseModel, Field, field_validator, ConfigDict, ValidationError
 from typing import Literal
-import json
+
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator
 
 raw_users = [
     {"id": "1", "name": " Alice ", "active": "true", "email": " alice@example.com "},

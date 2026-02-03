@@ -2,8 +2,8 @@
 from pydantic import (
     BaseModel,
     ConfigDict,
-    ValidationError,
     Field,
+    ValidationError,
     computed_field,
 )
 
