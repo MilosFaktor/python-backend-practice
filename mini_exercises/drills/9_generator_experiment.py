@@ -19,11 +19,11 @@ def gen():
     for x in range(N):
         with console.status("Processing..."):
             time.sleep(1)
-        print("Proccessed:", x)
+        print("Proccessed:", x + 1)
         yield x
 
 
 for x in gen():
     with console.status("Consuming..."):
         time.sleep(1)
-    print("Consumed:", x)
+    print("Consumed:", x + 1)
