@@ -1,5 +1,3 @@
-# ruff: noqa: F401
-
 import uuid
 from collections.abc import AsyncGenerator
 from datetime import UTC, datetime
