@@ -7,6 +7,7 @@ uv python uninstall <version>
 
 
 uv init
+uv init --bare # instals only pyproject.toml
 uv add -r requirements.txt # install depends from the requirements.txt if there is some
 uv add requests
 uv add --script example.py requests # managing dependancies for a single file and dont add to pyproject.toml
