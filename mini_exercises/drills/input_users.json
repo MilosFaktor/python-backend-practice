@@ -1,0 +1,10 @@
+{
+  "users": [
+    {"id": "1", "name": " milos ", "age": "32", "active": "true"},
+    {"id": "2", "name": "anna", "age": null, "active": "false"},
+    {"id": "3", "name": "peter", "age": "not_number", "active": "true"},
+    {"id": null, "name": "john", "age": "25", "active": "true"},
+    {"id": "4", "name": " eva", "age": "19", "active": "TRUE"},
+    {"id": "5", "name": "  ", "age": "40", "active": "true"}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "total_in": 6,
+  "total_out": 2,
+  "skipped": 4,
+  "users": [
+    {
+      "id": 1,
+      "name": "Milos",
+      "age": 32,
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Eva",
+      "age": 19,
+      "active": true
+    }
+  ]
+}
