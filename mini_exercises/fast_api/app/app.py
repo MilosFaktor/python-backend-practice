@@ -160,7 +160,7 @@ async def delete_post(
         if not post:
             raise HTTPException(status_code=404, detail="Post not found")
 
-        if post.user_id != user.id:
+        if post.user_id is not user.id:
             raise HTTPException(
                 status_code=403, detail="Not authorized to delete this post"
             )
